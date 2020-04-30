@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>Data Binding</title>
+
+    <style>
+        h2{
+            text-align: center;
+        }
+
+        .fixImageSize{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Data Binding </h2>
+
+    
+    <div id="my-app">
+        
+        <!-- attribute binding -->
+        <a v-bind:href="link" v-bind:title="title">{{name}}</a>
+        
+        <br />
+
+        <!-- class binding -->
+        <img v-bind:src="imgLink" v-bind:alt="alt" v-bind:class="{fixImageSize:isActive}">
+
+        <!-- input binding -->
+        <form action="">
+            <input type="text" :value="txtName" placeholder="enter name">
+            <input type="text" :value="txtEmail" placeholder="enter email">
+            <button type="submit">submit</button>
+        </form>
+
+        <!-- Html Content Binding -->
+        <div v-html="htmlContent">
+
+        </div>
+    </div>
+
+    <script>
+
+        var myApp = new Vue({
+            el: "#my-app",
+            data:{
+                //attribute binding
+                name:"youtube",
+                link:"https://www.youtube.com",
+                title: "click here",
+                //class binding
+                imgLink: "images/js.jpg",
+                alt:"javaScript - wallpaper",
+                isActive:true,
+                //input binding
+                txtName:"Fariha Jahan Rainy",
+                txtEmail:"fariha.23@gmail.com",
+                //html content binding
+                htmlContent: "<p> Hei, Rainy </p> <br /> <p> Hei, Shahed Vhai</p> "
+            },
+
+            mounted: function() {
+                console.log("Vue is ready");
+            }
+
+        });
+
+    </script>
+</body>
+</html>
