@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+
+    <title>Vue Application</title>
+</head>
+<body>
+    
+    <div id="my-app">
+        <h2>{{run('Youtube')}}</h2>
+        <p>{{print()}}</p>
+        <p>{{welcome('Morning')}}</p>
+    </div>
+
+    <script>
+        var myApp = new Vue({
+            el:'#my-app',
+            data:{
+                message: "Hello World !!"
+            },
+            methods:{
+                run: function(para1){
+                    return "I am Running"+ para1;
+                },
+                print: function(){
+                   return this.message; 
+                },
+                welcome: function(dayTime){
+                    return "Good "+ dayTime;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
