@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnderStanding JavaScript</title>
+</head>
+<body>
+    
+    <h2> Basic Async JavaScript</h2>
+    <hr>
+
+    <!-- check console -->
+    <script>
+
+        /* console.log('first');
+        console.log('print');
+        console.log('end'); */
+
+        //now check async( not depend on prev statement)
+/* 
+        console.log('first');
+
+        setTimeout(function(){
+            console.log('print');
+        }, 1000);
+
+        console.log('end'); // not depend on prev statement for executing
+        //output : first end print
+ */
+
+
+        /* how can we achieve sync ?
+            Ans: By implement callback concept*/
+
+        /* console.log('first');
+        print('print', function(){
+            console.log('end');
+        });
+
+        function print(s, callback){
+            setTimeout(()=>{
+                console.log(s);
+                callback();
+            }, 1000);
+        }
+ */
+
+
+
+
+        //json understanding
+
+        /* var myJson = {
+            "name" : "Md. Amzad Hossain Jacky",
+            "web" : "www.coderjack.com",
+            "skills": ['html', 'php', 'laravel', 'vue', 'jquery', 5],
+            "friends" :[
+                {"name": "Fariha Jahan Rainy", "web": "www.rainy@gmail.com"},
+                {"name": "Rajdeep Sarkar", "web": "www.rajdeep@gmail.com"},
+            ]
+        }
+
+        console.log(myJson.web);
+        console.log(myJson.skills[5]);
+        console.log(myJson.friends[1].web) */
+
+
+    </script>
+</body>
+</html>
