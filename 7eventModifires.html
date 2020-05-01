@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event modifires </h1>
+    <p>Once, prevent, stop, capture modifires</p>
+    <div id="my-app">
+
+        <!-- once modifire -->
+        <h3>Count: {{count}}</h3>
+        <!-- once click --> 
+        <button type="button" @click.once="clickFunction">incr+1</button>
+        <br /><br />
+        <a :href="link" @click.prevent>Google</a>
+        
+        <!-- prevent submit -->
+        <form action="" @submit.prevent>
+            <input type="text">
+            <button type="submit">Submit</button>
+        </form>
+
+        <br /><br />
+        <!-- stop -->
+        <div v-on:click="clickStop">
+            <button type="submit" v-on:click.stop="clickStop">clickStop</button>
+        </div>
+
+        <br /><br />
+        <!-- capture -->
+        <div @click.capture="capture2">
+            <button type="submit" @click="capture">capture</button>
+        </div>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#my-app',
+            data: {
+                count: 0,
+                link: "https://google.com"
+            },
+            methods: {
+                clickFunction: function(){
+                    this.count++;
+                },
+                clickStop: function(){
+                    console.log('click not two times');
+                },
+                capture: function(){
+                    console.log('capture');
+                },
+                capture2: function(){
+                    console.log('capture2');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
