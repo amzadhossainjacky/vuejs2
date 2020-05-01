@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Key Event modifires </h1>
+    <p>enter, alt, ctrl, keycode, delete, space</p>
+    <div id="my-app">
+
+        <input type="text" @keyup="keyFunction">
+    </div>
+
+    <script>
+        new Vue({
+            el:'#my-app',
+            data: {
+            },
+            methods: {
+                keyFunction: function(e){
+                    console.log(e.key);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
