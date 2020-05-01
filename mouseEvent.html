@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 2px solid red;
+            background-color: rgb(235, 200, 111);
+        }
+        .c{
+            background-color: rgb(20, 177, 156);
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mouse Event</h1>
+
+    <div id="my-app" v-on:mousemove="moveFunction">
+        <div class="box" >
+            X: {{x}}  Y:{{y}}
+        </div>
+        <br/>
+        <button type="button" v-on:mouseover="overFunction" v-on:mouseout="outFunction" :class="{c:isActive}">mouseover & out</button>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#my-app',
+            data: {
+               x:0,
+               y:0,
+               isActive: false
+            },
+            methods: {
+                moveFunction: function(event){
+                    this.x = event.offsetX;
+                    this.y = event.offsetY;
+                },
+                overFunction: function(){
+                    console.log('due to over');
+                    this.isActive = true;
+                },
+                outFunction: function(){
+                    console.log('due to out');
+                    
+                    this.isActive = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
