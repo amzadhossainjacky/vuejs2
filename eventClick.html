@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click Event</h1>
+
+    <div id="my-app">
+        <h3>Counter: {{count}}</h3>
+        <button type="submit" v-on:click="increment(1)"> increment by 1</button>
+        <button type="submit" v-on:click="decrement(1)"> decrement by 1</button>
+
+        <button v-on:dblclick="increment(3)">increment by 3</button>
+        <button v-on:dblclick="decrement(3)">decrement by 3</button>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#my-app',
+            data: {
+                count: 0
+            },
+            methods: {
+                increment: function(value){
+                    this.count += value;
+                },
+                decrement: function(value){
+                    this.count -= value;
+                }
+
+            },
+        })
+    </script>
+</body>
+</html>
