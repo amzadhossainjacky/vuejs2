@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>two way data binding</title>
+</head>
+<body>
+    <h2>Two way Data binding</h2>
+
+    <div id="my-app">
+        <input type="text" v-model="character">
+
+        <p>{{character}}</p>
+
+        <form action="">
+            <input type="email" v-model="name"> {{name}}
+            <br/> <br/>
+            <input type="email" v-model="email"> {{email}}
+        </form>
+    </div>
+
+    <script>
+        var myApp = new Vue({
+            el:'#my-app',
+            data:{
+                character:"",
+                name: "jacky",
+                email: "jacky@gmail.com"
+            },
+            /* methods: {
+                keyPress: function(e) {
+                   this.character = e.key;
+                }
+            } */
+        });
+    </script>
+</body>
+</html>
