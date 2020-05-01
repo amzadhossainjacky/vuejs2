@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Event</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Events</h1>
+
+    <div id="my-app">
+        <p>key press</p>
+        <input type="text" v-on:keypress="keypressFunction">
+        <br>
+        <br>
+        
+        <p>key up</p>
+        <input type="text" v-on:keyup="keyupFunction">
+        <br>
+        <br>
+        <p>key down</p>
+        <input type="text" @keydown="keydownFunction">
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#my-app',
+            data: {
+            },
+            methods: {
+                keypressFunction:function(e){
+                    console.log(e.key);
+                },
+                keyupFunction:function(){
+                    console.log('key up');
+                },
+                keydownFunction:function(){
+                    console.log('key down');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
