@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>Computed Properties</title>
+</head>
+<body>
+    <h2>Computed Properties</h2>
+
+    <div id="my-app">
+        {{runme()}}
+
+
+    <!-- example 1 -->
+        <div>
+            <br>
+            <input type="text" v-model="firstName" placeholder="first name">
+            <input type="text" v-model="lastName" placeholder="last name">
+            <br> <br> Full Name: {{ getFullName }}
+        </div>
+    
+    <!-- example 2 -->
+        <div>
+            <br>
+            <input type="text" v-model="meter" placeholder="meter value">
+            meter: {{convertMeterToCentimeter}}
+        </div>
+    <!-- example 3 -->
+        <div>
+            <br>
+            <input type="text" v-model="math" placeholder="math marks"><br>
+            <input type="text" v-model="physics" placeholder="physics marks"><br>
+            <input type="text" v-model="english" placeholder="english marks">
+
+            <br>Total Marks: {{fullSubMarks}}
+        </div>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el:'#my-app',
+            data:{
+                firstName:"",
+                lastName:"",
+                meter: 0,
+                math:0,
+                physics:0,
+                english:0
+            },
+            methods:{
+                runme : function(){
+                    return "I am A method"
+                }
+            },
+            computed:{
+                getFullName :function(){
+                    return this.firstName +" "+ this.lastName;
+                },
+                convertMeterToCentimeter: function(){
+                    return this.meter*100; // 1 meter 100cm
+                },
+
+                fullSubMarks: function(){
+                    return parseInt(this.math) + parseInt(this.physics) + parseInt(this.english);
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>
