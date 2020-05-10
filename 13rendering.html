@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condition</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <h2> Rendering v-for </h2>
+
+    <div id="my-app">
+        
+        <ul>
+            <li v-for="(student, index) in students">{{index}} {{student}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="teacher in teachers"> {{teacher.name}} teaches {{teacher.subject}} from {{teacher.location.street}} {{teacher.location.houseNo}}</li>
+        </ul>
+        
+        <!-- indexing -->
+        <ul>
+            <li v-for="(teacher) in teachers">{{teacher.name}} teaches {{teacher.subject}} 
+
+                <p v-for="(addr, index) in teacher.location">
+                    {{index}} - {{addr}}
+                </p>
+            </li>
+        </ul>
+        
+    </div>
+
+    <script>
+        new Vue({
+            el: "#my-app",
+            data:{
+
+                students: ['Jacky', 'Rainy', 'Rajdeep', 'Shakib'],
+                teachers: [
+                    {name: "Alamin", subject: "subject1", location:{street: 'street1', houseNo: "201" }},
+                    {name: "Malek", subject: "subject2", location:{street: 'street2', houseNo: "202" }},
+                    {name: "Khalek", subject: "subject3", location:{street: 'street3', houseNo: "203" }},
+                ]
+            },
+            methods: {
+
+            },
+        });
+    </script>
+</body>
+</html>
