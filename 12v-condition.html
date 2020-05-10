@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condition</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <h2> v-if v-else v-else-if v-show</h2>
+
+    <div id="my-app">
+        <!-- not exist if false -->
+        <p v-if="isActive"> This is my if condition</p>
+        <p v-else > This is my else condition</p>
+
+        <!-- show exist -->
+        <p v-show="false">This is my show condition</p>
+
+        <!-- v-if v-else v-else-if -->
+
+        <button @click="increment">increasing by 1</button>
+        <ul>
+            <li v-if="count == 1"> count {{count}}</li>
+            <li v-else-if="count == 2"> count {{count}}</li>
+            <li v-else-if="count == 3"> count {{count}}</li>
+            <li v-else="count == 4"> No count value </li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#my-app",
+            data:{
+               isActive: true,
+               count: 0
+            },
+            methods: {
+                increment: function (){
+                    this.count++;
+                }
+            },
+        });
+    </script>
+</body>
+</html>
