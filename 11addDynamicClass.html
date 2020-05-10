@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add dynamic class</title>
+    <script src="js/vue.js"></script>
+
+    <style>
+        .btn{
+            padding: 4px 10px;
+            background-color: red;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="my-app">
+        <button type="submit"  v-bind:class="{btn:isActive}" @click="callFunc">toggle</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:".my-app",
+            data:{
+                isActive: true
+            },
+            methods: {
+                
+                callFunc: function (){
+                    this.isActive = !this.isActive;
+                }
+            },
+        });
+    </script>
+</body>
+</html>
